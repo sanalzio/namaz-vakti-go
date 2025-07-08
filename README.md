@@ -28,3 +28,6 @@ Eee... Bunu açıklamak zaman alacak. İlk önce veriyi diyanet sitesinden alıy
 - Python ile yazdığım `xlstocsv.py` betiği ile `$ python ./xlstocsv.py ./vakitler.xlsx` komutu ile Excel verisini csv verisine çeviriyorum.
 - Daha sonra Bun (`javascript`) ile yazdığım `csvtojson.js` betiği ile `$ bun ./csvtojson.js ./vakitler.csv` komutu ile CSV verisini JSON verisine çeviriyorum.
 - Sonra vakitler.json dosyasını derlenmiş program dosyasının oldu klasöre atarak `$ ./namaz-vakti` komutu ile programı kullanabilirsiniz.
+
+### Ne diye antin kuntin diller kullandın?
+Hızlıca bildiğim bir dil kullandım işte.
