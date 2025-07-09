@@ -23,7 +23,8 @@ Eee... Bunu açıklamak zaman alacak. İlk önce veriyi diyanet sitesinden alıy
 - Aşağıya indiğinizde bir namaz vakitleri tablosu buluyorsunuz.
 - Tablonun üst kısmında `Haftalık`, `Aylık`, `Yıllık` şeklinde namaz vakitleri var.
 - `Yıllık` seçeneğini seçince `Kayıt sayısı ∇`, `PDF` ve `Excel` tuşları çıkıyor.
-- `Excel` tuşunu seçiyoruz. İnen veriyi depodaki `/parse-data` klasörüne atıyorum.
+- `Kayıt sayısı ∇` seçicisine tıklayıp `Tümü` seçeneğini seçiyoruz.
+- `Excel` tuşuna tıklıyoruz. İnen veriyi depodaki `/parse-data` klasörüne atıyorum.
 - İnen veri dosyasının ismini `vakitler.xlsx` olarak sayalım.
 - Python ile yazdığım `xlstocsv.py` betiği ile `$ python ./xlstocsv.py ./vakitler.xlsx` komutu ile Excel verisini csv verisine çeviriyorum.
 - Daha sonra Bun (`javascript`) ile yazdığım `csvtojson.js` betiği ile `$ bun ./csvtojson.js ./vakitler.csv` komutu ile CSV verisini JSON verisine çeviriyorum.
