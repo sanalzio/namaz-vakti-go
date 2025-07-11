@@ -2,7 +2,7 @@
 Go dilini öğrenmek için yaptığım bir CLI uygulaması.
 
 ## Açıklama
-Basitçe aynı dizinde bulunan `vakitler.json` dosyasından aldığı veriler ile namaz vakitlerini gösterir.
+Basitçe kullanıcının ev dizinindeki `db` klasöründe (`~/db/vakitler.json`) bulunan `vakitler.json` dosyasından aldığı veriler ile namaz vakitlerini gösterir.
 
 ## Kullanımı
 - Go dilini bilgisayarınıza yükleyin.
@@ -28,7 +28,7 @@ Eee... Bunu açıklamak zaman alacak. İlk önce veriyi diyanet sitesinden alıy
 - İnen veri dosyasının ismini `vakitler.xlsx` olarak sayalım.
 - Python ile yazdığım `xlstocsv.py` betiği ile `$ python ./xlstocsv.py ./vakitler.xlsx` komutu ile Excel verisini csv verisine çeviriyorum.
 - Daha sonra Bun (`javascript`) ile yazdığım `csvtojson.js` betiği ile `$ bun ./csvtojson.js ./vakitler.csv` komutu ile CSV verisini JSON verisine çeviriyorum.
-- Sonra vakitler.json dosyasını derlenmiş program dosyasının oldu klasöre atarak `$ ./namaz-vakti` komutu ile programı kullanabilirsiniz.
+- Sonra vakitler.json dosyasını kullanıcının ev dizinindeki `db` klasörüne (`~/db/vakitler.json`) (`db` klasörü yoksa yeni klasör oluşturup içine atın.) atarak `$ ./namaz-vakti` komutu ile programı kullanabilirsiniz.
 
 ### Ne diye antin kuntin diller kullandın?
 Hızlıca bildiğim bir dil kullandım işte.

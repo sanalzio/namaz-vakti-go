@@ -45,6 +45,20 @@ var output string = "\n          " +
 	"%s" +
 	colorama.Reset + "\n\n"
 
+// bu da sonraki vakit kısmının atılmış hali (--yarin opsiyonu için)
+var OutputTomorrow string = "\n  " +
+	colorama.Fore.Magenta +
+	"İmsak   Güneş   Öğle    İkindi   Akşam   Yatsı" +
+	colorama.Reset + "\n  " +
+	colorama.Fore.BrightMagenta +
+	"%s   " +
+	"%s   " +
+	"%s   " +
+	"%s    " +
+	"%s   " +
+	"%s" +
+	colorama.Reset + "\n\n"
+
 func writeTable(number *int, data *map[string]map[string]string) {
 	// bunlarda renkli bir tablo için
 	var intermediateLine string = colorama.Fore.Yellow + "├────────────┼───────┼───────┼───────┼────────┼───────┼───────┤" + colorama.Fore.Reset
@@ -79,7 +93,12 @@ func writeTable(number *int, data *map[string]map[string]string) {
 }
 
 func main() {
-	file, err := os.ReadFile("vakitler.json")
+	dirname, err := os.UserHomeDir()
+        if err != nil {
+		panic(err)
+	}
+
+	file, err := os.ReadFile(dirname + "/db/vakitler.json")
 	if err != nil {
 		panic(err)
 	}
@@ -92,12 +111,14 @@ func main() {
 	}
 
 	now := time.Now()
+	tomorrow := false
 
 	// $ namaz-vakti argüman1 argüman2 şeklinde bir argüman var mı diye bakıyor
 	if len(os.Args) > 1 {
 		// $ namaz-vakti --yarin
 		if os.Args[1] == "--yarin" || os.Args[1] == "--yarın" || os.Args[1] == "-y" || os.Args[1] == "--tomorrow" || os.Args[1] == "-t" {
 			now = now.AddDate(0, 0, 1)
+			tomorrow = true
 		} else {
 			number, err := strconv.Atoi(os.Args[1])
 			if err != nil {
@@ -119,6 +140,11 @@ func main() {
 	if !ok {
 		fmt.Println("Bugüne ait vakit bilgisi yok.")
 		return
+	}
+
+	if tomorrow {
+		fmt.Printf(OutputTomorrow, vakitler["İmsak"], vakitler["Güneş"], vakitler["Öğle"], vakitler["İkindi"], vakitler["Akşam"], vakitler["Yatsı"])
+		return;
 	}
 
 	var nextVakitName string
